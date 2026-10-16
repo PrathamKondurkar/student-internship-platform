@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Student Skill and Internship Platform">
+  <title>SkillBridge | Student Internship Platform</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">S</span> SkillBridge</a>
+    <nav><a href="#opportunities">Opportunities</a><a href="#dashboard">Dashboard</a></nav>
+    <div class="top-actions">
+      <span id="userBadge" class="user-badge hidden"></span>
+      <button id="logoutBtn" class="btn btn-quiet hidden">Log out</button>
+      <button id="openAuthBtn" class="btn btn-primary">Get started</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Turn your skills into <span>opportunities.</span></h1>
+        <p class="hero-text">Discover internships that match your strengths, keep every application organized, and help companies find the right talent.</p>
+        <div class="hero-actions">
+          <a href="#opportunities" class="btn btn-primary">Explore internships <span>↗</span></a>
+          <button id="heroAuthBtn" class="btn btn-outline">Join SkillBridge</button>
+        </div>
+        <div class="hero-proof"><div class="avatar-stack"><span>ST</span><span>ML</span><span>WD</span></div><span>Skills first. Potential always.</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="visual-core"><span class="core-icon">✦</span><span>YOUR POTENTIAL</span><strong>∞</strong></div>
+        <div class="float-card float-match"><span class="float-icon green">✓</span><div><small>Skill match</small><strong>Personalized for you</strong></div></div>
+        <div class="float-card float-growth"><span class="float-icon purple">↗</span><div><small>Career growth</small><strong>One step at a time</strong></div></div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong>01</strong><span>Build your profile</span></div><div><strong>02</strong><span>Find your match</span></div><div><strong>03</strong><span>Make your move</span></div>
+    </section>
+
+    <section id="opportunities" class="section">
+      <div class="section-heading"><div><p class="eyebrow">FIND YOUR FIT</p><h2>Explore opportunities</h2><p class="muted">Find a role that helps your skills grow.</p></div>
+      <div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search role, company, location..." aria-label="Search internships"><button id="searchBtn" class="btn btn-dark">Search</button></div></div>
+      <div id="internshipGrid" class="internship-grid"><div class="loading-card">Loading opportunities...</div></div>
+    </section>
+
+    <section id="dashboard" class="section dashboard-section">
+      <div class="section-heading"><div><p class="eyebrow">YOUR SPACE</p><h2>Personal dashboard</h2><p class="muted">Sign in to manage your skills and applications.</p></div></div>
+      <div id="dashboardContent" class="dashboard-panel">
+        <div class="empty-state"><div class="empty-icon">↗</div><h3>Your next opportunity is waiting</h3><p>Create an account or log in to unlock your personalized dashboard.</p><button class="btn btn-primary" id="dashboardAuthBtn">Log in / Sign up</button></div>
+      </div>
+    </section>
+    <section class="cta-band"><div><p class="eyebrow">YOUR FUTURE ISN'T ONE-SIZE-FITS-ALL</p><h2>Start with what makes you, <em>you.</em></h2></div><button class="btn btn-light" id="ctaAuthBtn">Find your next step ↗</button></section>
+  </main>
+
+  <footer><a class="brand" href="/"><span class="brand-mark">S</span> SkillBridge</a><span>Built to connect skills with opportunity.</span><span>SDG 4 · SDG 8</span></footer>
+
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card"><button class="modal-close" data-close="true" aria-label="Close">×</button>
+      <div class="modal-tabs"><button class="tab active" data-mode="login">Log in</button><button class="tab" data-mode="register">Create account</button></div>
+      <h2 id="authTitle">Welcome back.</h2><p class="muted" id="authSubtitle">Pick up where you left off.</p>
+      <form id="authForm">
+        <div id="nameField" class="field hidden"><label for="authName">Full name / company name</label><input id="authName" autocomplete="name" minlength="2"></div>
+        <div class="field"><label for="authEmail">Email address</label><input id="authEmail" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="authPassword">Password</label><input id="authPassword" type="password" required minlength="8" autocomplete="current-password" placeholder="At least 8 characters"></div>
+        <div id="roleField" class="field hidden"><label for="authRole">I am joining as</label><select id="authRole"><option value="student">Student</option><option value="company">Company</option></select></div>
+        <p id="authMessage" class="form-message" role="status"></p><button id="authSubmit" class="btn btn-primary btn-full" type="submit">Log in</button>
+      </form>
+      <p class="fine-print">Your account information is used to power your SkillBridge experience.</p>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>
